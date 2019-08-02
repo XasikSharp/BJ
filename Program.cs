@@ -20,8 +20,7 @@ namespace ConsoleApplication3
             switch (result.ToLower())
                {
                 case "y":
-                Console.WriteLine("Pack of Cards and Values:");
-                    Console.WriteLine("//");
+             
 
                     Dictionary<string, int> cards = new Dictionary<string, int>
                     {
@@ -91,27 +90,84 @@ namespace ConsoleApplication3
                         ["Spades_King"] = 10,
                     };
 
+                    string[] pack =
+  {
+     "Hearts_Ace", "Diamonds_Ace", "Clubs_Ace", "Spades_Ace",
+
+     "Hearts_Two", "Diamonds_Two", "Clubs_Two", "Spades_Two",
+
+     "Hearts_Three", "Diamonds_Three", "Clubs_Three", "Spades_Three",
+
+     "Hearts_Four", "Diamonds_Four", "Clubs_Four", "Spades_Four",
+
+     "Hearts_Five", "Diamonds_Five", "Clubs_Five", "Spades_Five",
+
+     "Hearts_Six", "Diamonds_Six", "Clubs_Six", "Spades_Six",
+
+     "Hearts_Seven", "Diamonds_Seven", "Clubs_Seven", "Spades_Seven",
+
+     "Hearts_Eight", "Diamonds_Eight", "Clubs_Eight", "Spades_Eight",
+
+     "Hearts_Nine", "Diamonds_Nine", "Clubs_Nine", "Spades_Nine",
+
+     "Hearts_Ten", "Diamonds_Ten", "Clubs_Ten", "Spades_Ten",
+
+     "Hearts_Jack", "Diamonds_Jack", "Clubs_Jack", "Spades_Jack",
+
+     "Hearts_Queen", "Diamonds_Queen", "Clubs_Queen", "Spades_Queen",
+
+     "Hearts_King", "Diamonds_King", "Clubs_King", "Spades_King"
+};
+
+                    Console.WriteLine("//");
+                    Console.WriteLine("Cards Names:");
+                    Console.WriteLine("//");
+                    for (int i = 0; i < pack.Length; i++)
+                     {
+                        Console.WriteLine(pack[i]);
+                     }
+
+                    Console.ReadKey();
+
+
+
+                    Console.WriteLine("//");
+                    Console.WriteLine("Pack of Cards and Values:");
+                    Console.WriteLine("//");
+
                     foreach (KeyValuePair<string, int> keyValue in cards)
                     {
                         Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
                     }
 
+                    Console.WriteLine("//");
                     Console.WriteLine("Shuffling (press the Button)");
                     Console.ReadKey();
 
 
+        
                     // Тасуем колоду из 52 карт
+                    Console.WriteLine("//");
                     Console.WriteLine("Shuffling Cards:");
                     Console.WriteLine("//");
 
-                    foreach (KeyValuePair<string, int> keyValue in cards)
+
+                    string[] spack = new string[52];
+                    Random rnd = new Random();
+                   
+                    for (int i = 0; i < pack.Length; i++)
                     {
-                        Random KeyValuePair = new Random();
-                        string shfl1 = keyValue.Key;
-                        int shfl2 = keyValue.Value;
-                        Console.WriteLine(shfl1 + " - " + shfl2);
-                        
+                        int j = rnd.Next(53);
+                        spack[i] = pack[j];
+                        Console.WriteLine("№" + i + " - " + spack[i]);
+                        Console.ReadKey();
                     }
+
+                    
+                    Console.ReadKey();
+
+
+
 
 
                     Console.ReadKey();
@@ -143,7 +199,7 @@ namespace ConsoleApplication3
                     Console.ReadKey();
                     goto Metka;
                     // Нужен goto METKA "начальный экран"
-                    break;
+                    // break;
 
 
                 case "n":
@@ -159,7 +215,7 @@ namespace ConsoleApplication3
                   Console.ReadKey();
                   goto Metka;
                   // Нужен goto METKA "начальный экран"
-                  break;
+                  // break;
                }
                   Console.Clear();
         }
